@@ -14,10 +14,14 @@ Foi solicitado a entidade Livro e os seguintes atributos:
 
 ● anoDePublicacao
 
-e os endpoints GET, PUT, UPDATE E DELETE
+e os endpoints CREATE, READ ALL, READ ONE, UPTADE E DELETE
+
+A solução encontrada consistiu na utilização de métodos simples que executam cada função listada, com o devido tratamento de erro caso o livro não seja encontrado. Especificamente para os tratamentos de erro, foi utilizado o **`@ControllerAdvice`** para padronizar as exceções.
 
 
+-------------------------------------------------------------------------------------------
 Para fazer o projeto rodar na sua maquina , será preciso seguir os seguintes passos
+
 
 
 1. Baixar o arquivo do projeto do repositorio do github
