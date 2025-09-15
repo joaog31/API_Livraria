@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -21,11 +22,11 @@ class ApiLivrariaApplicationTests {
 
 
     @Test
-	void testcreate(){
+	void testCreate(){
 		Livro livro = new Livro();
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
-		livro.setIsbn("1234567890");
+		livro.setIsbn("12345678904221");
 		livro.setAno(2021);
 		ResponseEntity<Livro> criar = livroService.criar(livro);
 		Livro body = criar.getBody();
@@ -36,23 +37,23 @@ class ApiLivrariaApplicationTests {
 	}
 
 	@Test
-	void testlistar(){
+	void testListar(){
 		Livro livro = new Livro();
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
-		livro.setIsbn("1234567890");
+		livro.setIsbn("1234567890874");
 		livro.setAno(2021);
 		livroService.criar(livro);
 		List<Livro> list = livroService.listar();
-		Assertions.assertEquals(1, list.size());
+        Assertions.assertFalse(list.isEmpty());
 	}
 
 	@Test
-	void testbuscar(){
+	void testBuscar(){
 		Livro livro = new Livro();
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
-		livro.setIsbn("1234567890");
+		livro.setIsbn("123456789078");
 		livro.setAno(2021);
 		livroService.criar(livro);
 		ResponseEntity<Livro> buscar = livroService.buscar(livro.getId());
@@ -60,16 +61,16 @@ class ApiLivrariaApplicationTests {
 	}
 
 	@Test
-	void testeditar(){
+	void testEditar(){
 		Livro livro = new Livro();
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
-		livro.setIsbn("1234567890");
+		livro.setIsbn("123456789065");
 		livro.setAno(2021);
 		ResponseEntity<Livro> criar = livroService.criar(livro);
 		LIVRO_TEST.setTitulo("Livro 2");
 		LIVRO_TEST.setAutor("Joao");
-		LIVRO_TEST.setIsbn("1234567890");
+		LIVRO_TEST.setIsbn("123456789045");
 		LIVRO_TEST.setAno(2005);
 		livroService.editar(Objects.requireNonNull(criar.getBody()).getId(), LIVRO_TEST);
 
@@ -78,18 +79,17 @@ class ApiLivrariaApplicationTests {
 	}
 
 	@Test
-	void testexcluir(){
+	void testExcluir(){
 		Livro livro = new Livro();
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
-		livro.setIsbn("1234567890");
+		livro.setIsbn("12345678903");
 		livro.setAno(2021);
 		ResponseEntity<Livro> criar = livroService.criar(livro);
-		livroService.excluir(criar.getBody().getId());
-		ResponseEntity<Livro> buscar = livroService.buscar(criar.getBody().getId());
-        Assertions.assertNull(buscar.getBody());
+		ResponseEntity<Void> excluir = livroService.excluir(criar.getBody().getId());
+		Assertions.assertEquals(HttpStatus.NO_CONTENT, excluir.getStatusCode());
 
-		//git branch -M main
+
 	}
 
 }

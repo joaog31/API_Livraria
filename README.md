@@ -1,14 +1,42 @@
-Esse é o projeto Api Livraria , no qual foi ultizado o springboot para resolver o problema.
+# Este é o projeto Api Livraria  
 
-Foi solicitado a entidade Livro e os seguintes atributos
+## FrameWork Ultilizado foi o Springboot
 
-● id: Identificador único (numérico, gerado automaticamente).
+Foi solicitado a entidade Livro e os seguintes atributos:
 
-● titulo: Título do livro (texto, obrigatório).
+● id
 
-● autor: Nome do autor (texto, obrigatório).
+● titulo 
 
-● isbn: Código ISBN do livro (texto, deve ser único).
+● autor
 
-● anoDePublicacao: Ano em que o livro foi publicado (numérico).
+● isbn
 
+● anoDePublicacao
+
+e os endpoints GET, PUT, UPDATE E DELETE
+
+
+Para fazer o projeto rodar na sua maquina , será preciso seguir os seguintes passos
+
+
+1. Baixar o arquivo do projeto do repositorio do github
+
+__Link__: https://github.com/joaog31/API_Livraria
+
+2. Extrair o arquivo na pasta onde deseja armazenar o projeto
+3. Abrir o terminal da pasta para rodar os comandos de instalação
+
+### Caso seu SO seja windows
+
+1. primeiro comando a ser usado para baixar as dependencias é: `./mvnw.cmd install` 
+2. Segundo comando vai ser `./mvnw.cmd spring-boot:run`
+
+Caso os testes deem erro ultilize o seguinte comando abaixo:
+`./mvnw.cmd install -DskipTests`
+
+### Caso seu SO seja Linux
+1. Primeiro comando é: `/mvnw install`
+2. Segundo comando  é: `/mvnw spring-boot:run`
+
+Caso os testes deem erro ultilize o seguinte comando abaixo: `./mvnw install -DskipTests`
