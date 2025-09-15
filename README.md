@@ -44,3 +44,7 @@ Caso os testes deem erro ultilize o seguinte comando abaixo:
 2. Segundo comando  é: `/mvnw spring-boot:run`
 
 Caso os testes deem erro ultilize o seguinte comando abaixo: `./mvnw install -DskipTests`
+
+
+### Link só pode ser acessado caso a aplicação esteja rodando.
+Link do Swagger para a documentação: http://localhost:8080/swagger-ui/index.html#/
