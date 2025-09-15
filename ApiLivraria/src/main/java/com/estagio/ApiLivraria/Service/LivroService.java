@@ -1,8 +1,8 @@
 package com.estagio.ApiLivraria.Service;
 
+import com.estagio.ApiLivraria.execptionsController.execptions.LivroNotFoundExecption;
 import com.estagio.ApiLivraria.model.entity.Livro;
 import com.estagio.ApiLivraria.model.repository.LivroRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -30,7 +30,7 @@ public class LivroService {
         if (byId.isPresent()) {
             return ResponseEntity.status(200).body(byId.get());
         }
-        return ResponseEntity.notFound().build();
+        throw new LivroNotFoundExecption("Livro Não Encontrado");
     }
 
     public ResponseEntity<Livro> editar(Long id, Livro livro) {
@@ -43,7 +43,7 @@ public class LivroService {
             livroRepository.save(byId.get());
             return ResponseEntity.status(200).body(byId.get());
         }
-        return ResponseEntity.notFound().build();
+        throw new LivroNotFoundExecption("Livro Não Encontrado");
     }
 
     public ResponseEntity<Void> excluir(Long id) {
@@ -52,6 +52,6 @@ public class LivroService {
             livroRepository.delete(byId.get());
             return ResponseEntity.status(204).build();
         }
-        return ResponseEntity.notFound().build();
+        throw new LivroNotFoundExecption("Livro Não Encontrado");
     }
 }
