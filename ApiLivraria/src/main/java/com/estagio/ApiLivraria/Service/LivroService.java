@@ -39,7 +39,7 @@ public class LivroService {
             byId.get().setTitulo(livro.getTitulo());
             byId.get().setAutor(livro.getAutor());
             byId.get().setIsbn(livro.getIsbn());
-            byId.get().setAno(livro.getAno());
+            byId.get().setAnoDePublicacao(livro.getAnoDePublicacao());
             livroRepository.save(byId.get());
             return ResponseEntity.status(200).body(byId.get());
         }

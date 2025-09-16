@@ -36,6 +36,6 @@ public class Livro {
 
     @NotNull
     @Column(nullable = false)
-    private int ano;
+    private int anoDePublicacao;
 
 }
