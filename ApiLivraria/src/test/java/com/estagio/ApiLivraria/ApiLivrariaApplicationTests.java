@@ -71,7 +71,7 @@ class ApiLivrariaApplicationTests {
 		LIVRO_TEST.setTitulo("Livro 2");
 		LIVRO_TEST.setAutor("Joao");
 		LIVRO_TEST.setIsbn("123456789045");
-		LIVRO_TEST.setAno(2005);
+		LIVRO_TEST.setAnoDePublicacao(2005);
 		livroService.editar(Objects.requireNonNull(criar.getBody()).getId(), LIVRO_TEST);
 
 		ResponseEntity<Livro> buscar = livroService.buscar(criar.getBody().getId());
