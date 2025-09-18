@@ -27,7 +27,7 @@ class ApiLivrariaApplicationTests {
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
 		livro.setIsbn("12345678904221");
-		livro.setAno(2021);
+		livro.setAnoDePublicacao(2021);
 		ResponseEntity<Livro> criar = livroService.criar(livro);
 		Livro body = criar.getBody();
         assert body != null;
@@ -42,7 +42,7 @@ class ApiLivrariaApplicationTests {
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
 		livro.setIsbn("1234567890874");
-		livro.setAno(2021);
+		livro.setAnoDePublicacao(2021);
 		livroService.criar(livro);
 		List<Livro> list = livroService.listar();
         Assertions.assertFalse(list.isEmpty());
@@ -54,7 +54,7 @@ class ApiLivrariaApplicationTests {
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
 		livro.setIsbn("123456789078");
-		livro.setAno(2021);
+		livro.setAnoDePublicacao(2021);
 		livroService.criar(livro);
 		ResponseEntity<Livro> buscar = livroService.buscar(livro.getId());
 		Assertions.assertEquals(Objects.requireNonNull(buscar.getBody()).getIsbn(), livro.getIsbn());
@@ -66,7 +66,7 @@ class ApiLivrariaApplicationTests {
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
 		livro.setIsbn("123456789065");
-		livro.setAno(2021);
+		livro.setAnoDePublicacao(2021);
 		ResponseEntity<Livro> criar = livroService.criar(livro);
 		LIVRO_TEST.setTitulo("Livro 2");
 		LIVRO_TEST.setAutor("Joao");
@@ -84,7 +84,7 @@ class ApiLivrariaApplicationTests {
 		livro.setTitulo("Livro 1");
 		livro.setAutor("Joao");
 		livro.setIsbn("12345678903");
-		livro.setAno(2021);
+		livro.setAnoDePublicacao(2021);
 		ResponseEntity<Livro> criar = livroService.criar(livro);
 		ResponseEntity<Void> excluir = livroService.excluir(criar.getBody().getId());
 		Assertions.assertEquals(HttpStatus.NO_CONTENT, excluir.getStatusCode());
